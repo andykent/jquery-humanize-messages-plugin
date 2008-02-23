@@ -1,0 +1,23 @@
+.feedback {
+  display: block;
+  position: fixed;
+  top: 100px;
+  left: 25%;
+  width: 43%;
+  z-index: 100000;
+	padding: .75em;
+	font-size: 28px;
+  color: #fff;
+	background: #000;
+  text-align: center; 
+	text-shadow: #333 -1px -1px 1px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border: 2px solid #000;
+}
+.positive {
+	border: 2px solid #00ff00;
+}
+.negative {
+	border: 2px solid #ff0000;
+}

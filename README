@@ -1,0 +1,73 @@
+jQuery Humanize Plugin - By Andy Kent
+======================================================
+
+This plugin is a great way of showing user feedback
+without distracting flow. It shows a semi-transparent
+overlay on top of the current page which fades away
+as soon as the user interacts with the browser in
+any way.
+
+
+Usage
+------------------------------------------------------
+
+You will need to include both the JS and CSS files
+first, feel free to customize the CSS as you feel
+fit.
+
+The first example will search for an element with a
+class of 'feedback' and then display it's contents
+to the user immediately, it's great for showing
+rails flash messages and the like.
+
+$(document).ready(function(){
+	$.humanize();
+});
+
+The second example shows the provided message to the
+user as soon as it is called. This is great for use
+in AJAX callbacks and validation checks.
+
+$.humanize('hello this is a message');
+
+
+Options
+------------------------------------------------------
+
+$.humanize([msg:String],options:Object);
+
+The defaults should be fine for most people but the 
+plugin does take several options if you want to
+customize things. Options can be passed in as the
+last parameter to $.humanize(); or set globally
+via $.humanize.defaults
+
+baseSelector ('.feedback)
+The jQuery selector to be used to find and display 
+the message.
+
+container ('<p class="feedback">&nbsp;</p>')
+The html to use so a container can be added if none 
+exists.
+
+fadeIn ({easing:'swing', duration:1000})
+Options to be passed to the jQuery animate function
+when fading the message in.
+
+fadeOut ({easing:'swing', duration:1000})
+Options to be passed to the jQuery animate function
+when fading the message out.
+
+opacity : 0.8
+value between 0 and 1 for the final message opacity.
+
+
+Credits
+------------------------------------------------------
+
+Created by: Andy Kent
+Contributors: YOUR NAME HERE ?
+
+I'd love to hear about any bugs/improvements/patches
+that you may have and will always credit people where
+appropriate. Thanks.
