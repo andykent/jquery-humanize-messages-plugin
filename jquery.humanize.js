@@ -17,29 +17,29 @@
 		} else {
 			var o = $.extend($.humanize.defaults, msg||{});
 		};
+		$.humanize.mouseCatch = o.movementThreshold;
 		$(o.baseSelector).css('opacity',0)
 		.animate({opacity:o.opacity},o.fadeIn);
-		$(window).mousemove($.humanize.remove).click($.humanize.remove).keypress($.humanize.remove)
+		$(document).mousemove($.humanize.remove).click($.humanize.remove).keypress($.humanize.remove)
 	};
 	$.humanize.defaults = {
 		baseSelector : '.feedback',
 		container : '<p class="feedback">&nbsp;</p>',
 		fadeIn : {easing:'swing', duration:1000},
 		fadeOut : {easing:'swing', duration:1000},
-		opacity : 0.8
+		opacity : 0.7,
+		movementThreshold : 3
 	};
-	$.humanize.mouseCatch = true; // a horrid hack for Safari because it triggers a mousemove event on refresh.
+	$.humanize.mouseCatch = 3;
 	$.humanize.remove = function(e) {
 		if(e.type=='mousemove' && $.humanize.mouseCatch) {
-			$.humanize.mouseCatch=false;
+			$.humanize.mouseCatch-=1;
 		 return
-		} else {
-			$.humanize.mouseCatch=true;
-		}
+		};
 		var o = $.humanize.defaults;
 			$(o.baseSelector)
 			.animate({opacity:0},o.fadeOut);
-			$(window)
+			$(document)
 				.unbind('mousemove',$.humanize.remove)
 				.unbind('click',$.humanize.remove)
 				.unbind('keypress',$.humanize.remove)
