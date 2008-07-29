@@ -26,7 +26,7 @@
 		baseSelector : '.feedback',
 		container : '<p class="feedback">&nbsp;</p>',
 		fadeIn : {easing:'swing', duration:1000},
-		fadeOut : {easing:'swing', duration:1000},
+		fadeOut : {easing:'swing', duration:1000,complete:function(){$(this).remove()}},
 		opacity : 0.7,
 		movementThreshold : 3
 	};
